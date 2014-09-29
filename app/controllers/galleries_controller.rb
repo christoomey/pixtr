@@ -25,4 +25,14 @@ class GalleriesController < ApplicationController
   def edit
     @gallery = Gallery.find(params[:id])
   end
+
+  def update
+    gallery = Gallery.find(params[:id])
+    gallery.update(
+      name: params[:gallery][:name],
+      description: params[:gallery][:description]
+    )
+
+    redirect_to "/"
+  end
 end

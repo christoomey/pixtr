@@ -1,1 +1,20 @@
 <h2>Editing gallery <%= @gallery.name %></h2>
+
+<form action="/galleries/<%= @gallery.id %>" method="POST">
+  <input type="hidden" name="_method" value="PATCH" />
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+
+  <div>
+    <label for="gallery_name">Name</label>
+    <input id="gallery_name" type="text" name="gallery[name]" value="<%= @gallery.name %>" />
+  </div>
+
+  <div>
+    <label for="gallery_description">Description</label>
+    <input id="gallery_description" type="text" name="gallery[description]" value="<%= @gallery.description %>" />
+  </div>
+
+  <div>
+    <input type="submit" value="Update gallery" />
+  </div>
+</form>
