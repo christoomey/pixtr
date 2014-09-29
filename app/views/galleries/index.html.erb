@@ -11,6 +11,11 @@
       -
       <%= gallery.description %>
       <a href="/galleries/<%= gallery.id %>/edit">edit</a>
+      <form action="/galleries/<%= gallery.id %>" method="POST">
+        <input type="hidden" name="_method" value="DELETE" />
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+        <input type="submit" value="delete" />
+      </form>
     </li>
   <% end %>
 </ul>
