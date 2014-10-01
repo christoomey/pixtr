@@ -1,3 +1,7 @@
 <p>The image name is: <%= @image.name %></p>
 
+<div>
+  <%= link_to "Edit this image", edit_gallery_image_path(@gallery, @image) %>
+</div>
+
 <%= image_tag @image.url %>
