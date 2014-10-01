@@ -1,6 +1,7 @@
 class GalleriesController < ApplicationController
   def index
     @galleries = Gallery.all
+    render :index
   end
 
   def new
@@ -8,8 +9,13 @@ class GalleriesController < ApplicationController
   end
 
   def create
-    gallery = Gallery.create(gallery_params)
-    redirect_to gallery
+    @gallery = Gallery.new(gallery_params)
+
+    if @gallery.save
+      redirect_to gallery_path(@gallery)
+    else
+      render :new
+    end
   end
 
   def show
@@ -21,11 +27,13 @@ class GalleriesController < ApplicationController
   end
 
   def update
-    gallery = load_gallery_from_url
+    @gallery = load_gallery_from_url
 
-    gallery.update(gallery_params)
-
-    redirect_to "/"
+    if @gallery.update(gallery_params)
+      redirect_to gallery_path(@gallery)
+    else
+      render :edit
+    end
   end
 
   def destroy
