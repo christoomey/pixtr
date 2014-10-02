@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'monban'
+gem 'monban-generators'
 
 gem 'pry', group: :development
 # with pry installed
