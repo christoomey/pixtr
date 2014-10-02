@@ -1,15 +1,15 @@
 class GalleriesController < ApplicationController
   def index
-    @galleries = Gallery.all
+    @galleries = current_user.galleries.all
     render :index
   end
 
   def new
-    @gallery = Gallery.new
+    @gallery = current_user.galleries.new
   end
 
   def create
-    @gallery = Gallery.new(gallery_params)
+    @gallery = current_user.galleries.new(gallery_params)
 
     if @gallery.save
       redirect_to gallery_path(@gallery)
@@ -50,6 +50,6 @@ class GalleriesController < ApplicationController
   end
 
   def load_gallery_from_url
-    Gallery.find(params[:id])
+    current_user.galleries.find(params[:id])
   end
 end

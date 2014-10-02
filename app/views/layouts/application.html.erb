@@ -13,6 +13,10 @@
     .session {
       float: right;
     }
+    img {
+      max-height: 25%;
+      max-width: 25%;
+    }
   </style>
 </head>
 <body>
@@ -26,6 +30,12 @@
   </header>
 
   <h1><%= link_to "Pixtr", root_path %></h1>
+
+  <% flash.each do |name, msg| %>
+    <% if msg.is_a?(String) %>
+      <%= content_tag :div, msg, :class => "flash_#{name}" %>
+    <% end %>
+  <% end %>
 
   <%= yield %>
 
