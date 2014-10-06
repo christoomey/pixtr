@@ -2,6 +2,8 @@ class ImagesController < ApplicationController
   def show
     @gallery = load_gallery_from_url
     @image = @gallery.images.find(params[:id])
+    @comment = Comment.new
+    @comments = @image.comments
   end
 
   def new
