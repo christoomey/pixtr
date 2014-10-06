@@ -8,12 +8,7 @@
 
 <ul>
   <% @comments.each do |comment| %>
-    <div>
-      <li>
-        <strong><%= comment.user.email %></strong> - <%= comment.body %>
-        (<%= time_ago_in_words comment.created_at %> ago)
-      </li>
-    </div>
+    <%= render "comments/comment", comment: comment %>
   <% end %>
 </ul>
 
