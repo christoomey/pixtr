@@ -1,6 +1,6 @@
 class GalleriesController < ApplicationController
   def index
-    @galleries = current_user.galleries.all
+    @galleries = Gallery.all
     render :index
   end
 
@@ -50,6 +50,6 @@ class GalleriesController < ApplicationController
   end
 
   def load_gallery_from_url
-    current_user.galleries.find(params[:id])
+    Gallery.find(params[:id])
   end
 end
