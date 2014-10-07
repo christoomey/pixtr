@@ -4,11 +4,11 @@
   <% @groups.each do |group| %>
     <li>
       <%= link_to group.name, group %> -
-      (<% if group.members.include? current_user %>
+      <% if group.members.include? current_user %>
         yes
       <% else %>
-        no
-      <% end %>)
+        <%= button_to "Join Group", group_group_memberships_path(group) %>
+      <% end %>
     </li>
   <% end %>
 </ul>
