@@ -1,3 +1,11 @@
 <h2>Welcome to the <%= @group.name %> group</h2>
 
 <p><%= @group.description %></p>
+
+<h4>Group members:</h4>
+
+<ul>
+  <% @members.each do |member| %>
+    <li><%= member.email %></li>
+  <% end %>
+</ul>
