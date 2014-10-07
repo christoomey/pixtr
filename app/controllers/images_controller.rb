@@ -51,5 +51,6 @@ class ImagesController < ApplicationController
   end
 
   def load_personal_gallery_from_url
-    current_user.galleries.find(params[:gallery_id]) end
+    current_user.galleries.find(params[:gallery_id])
+  end
 end
