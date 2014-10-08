@@ -8,6 +8,10 @@
 
 <div>
   Image has <%= @image.likes.count %> likes
+  <p>These people like it:</p>
+  <% @image.likers.each do |liker| %>
+    <p><%= liker.email %></p>
+  <% end %>
 </div>
 
 <% if current_user.likes?(@image) %>
