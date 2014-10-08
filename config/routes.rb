@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create, :index, :show]
 
+  resources :tags, only: [:index, :create]
+
   resources :galleries do
     resources :images, only: [:show, :new, :create, :edit, :update]
   end

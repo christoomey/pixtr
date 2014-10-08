@@ -75,6 +75,12 @@ ActiveRecord::Schema.define(version: 20141009125422) do
 
   add_index "likes", ["user_id", "image_id"], name: "index_likes_on_user_id_and_image_id", unique: true, using: :btree
 
+  create_table "tags", force: true do |t|
+    t.string   "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.string   "email"
     t.string   "password_digest"

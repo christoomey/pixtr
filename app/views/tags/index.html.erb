@@ -1,0 +1,14 @@
+<%= form_for @new_tag do |form| %>
+  <%= render "error_messages", target: @new_tag %>
+  <div>
+    <%= form.text_field :text, placeholder: 'tag word' %>
+  </div>
+
+  <%= form.submit %>
+<% end %>
+
+<ul>
+  <% @tags.each do |tag| %>
+    <li><%= tag.text %></li>
+  <% end %>
+</ul>
