@@ -6,6 +6,8 @@
 
 <%= image_tag @image.url %>
 
+<%= button_to "Like this image", image_likes_path(@image) %>
+
 <ul>
   <% @comments.each do |comment| %>
     <%= render "comments/comment", comment: comment %>
