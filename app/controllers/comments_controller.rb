@@ -3,10 +3,12 @@ class CommentsController < ApplicationController
     @image = Image.find(params[:image_id])
     @comment = @image.comments.new(comment_params)
     @gallery = @image.gallery
+
     if @comment.save
       redirect_to gallery_image_path(@gallery, @image)
     else
       @comments = @image.comments.recent
+
       render "images/show"
     end
   end
