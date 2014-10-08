@@ -6,6 +6,10 @@
 
 <%= image_tag @image.url %>
 
+<div>
+  Image has <%= @image.likes.count %> likes
+</div>
+
 <% if current_user.likes?(@image) %>
   <%= button_to "Unlike this image", image_like_path(@image), method: :delete %>
 <% else %>
