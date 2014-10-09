@@ -1,0 +1,8 @@
+<p>Viewing the <strong><%= @tag.text %></strong> page</p>
+
+<% @images.each do |image| %>
+  <div>
+    <%= link_to image_tag(image.url), gallery_image_path(image.gallery, image) %>
+    <p><%= image.name %> (in the "<%= image.gallery_name %>" gallery)</p>
+  </div>
+<% end %>
