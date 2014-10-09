@@ -58,6 +58,15 @@ ActiveRecord::Schema.define(version: 20141009125422) do
     t.datetime "updated_at"
   end
 
+  create_table "image_tags", force: true do |t|
+    t.integer  "image_id"
+    t.integer  "tag_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "image_tags", ["image_id", "tag_id"], name: "index_image_tags_on_image_id_and_tag_id", unique: true, using: :btree
+
   create_table "images", force: true do |t|
     t.string   "name"
     t.string   "url"

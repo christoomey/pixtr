@@ -27,6 +27,9 @@
   <%= button_to "Like this image", image_like_path(@image) %>
 <% end %>
 
+<p><strong>Tags:</strong> <%= @tags.join(', ') %></p>
+
+<h2>Comments:</h2>
 <ul>
   <% @comments.each do |comment| %>
     <%= render "comments/comment", comment: comment %>
