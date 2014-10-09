@@ -15,7 +15,7 @@ class TagsController < ApplicationController
   end
 
   def show
-    @tag = Tag.find(params[:id])
+    @tag = Tag.find_by(text: params[:id])
     @images = @tag.images
   end
 
