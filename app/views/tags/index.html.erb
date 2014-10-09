@@ -7,13 +7,18 @@
   <%= form.submit %>
 <% end %>
 
+<h2>Tags with images:</h2>
 <ul>
-  <% @tags.each do |tag| %>
+  <% @tags_with_images.each do |tag| %>
     <li>
-      <%= link_to tag.text, tag %>
-      <% unless tag.image_count.zero? %>
-        -- <%= pluralize(tag.image_count, 'image') %>
-      <% end %>
+      <%= link_to tag.text, tag %> -- <%= pluralize(tag.image_count, 'image') %>
     </li>
+  <% end %>
+</ul>
+
+<h2>Tags <em>without</em> images:</h2>
+<ul>
+  <% @tags_with_images.each do |tag| %>
+    <li><%= link_to tag.text, tag %></li>
   <% end %>
 </ul>

@@ -1,7 +1,10 @@
 class TagsController < ApplicationController
   def index
     @new_tag = Tag.new
-    @tags = Tag.all
+    @tags_with_images, @orphaned_tags = Tag.all.partition do |tag|
+      tag.image_count > 0
+    end
+    @tags_with_images.sort_by!(&:image_count).reverse!
   end
 
   def create
