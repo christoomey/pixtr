@@ -31,8 +31,9 @@ class ImagesController < ApplicationController
   def update
     @gallery = load_personal_gallery_from_url
     @image = @gallery.images.find(params[:id])
+    @tag_ids = parse_tag_ids
 
-    if @image.update(image_params)
+    if @image.update(image_params.merge(tag_ids: parse_tag_ids))
       redirect_to gallery_image_path(@gallery, @image)
     else
       render :edit
@@ -45,6 +46,13 @@ class ImagesController < ApplicationController
     params.
       require(:image).
       permit(:name, :url, group_ids: [], tag_ids: [])
+  end
+
+  def parse_tag_ids
+    tags_string = params[:image][:tag_words]
+    tags_string.split(", ").map do |tag_word|
+      Tag.find_or_create_by(text: tag_word).id
+    end
   end
 
   def load_gallery_from_url

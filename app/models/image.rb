@@ -15,4 +15,9 @@ class Image < ActiveRecord::Base
   def gallery_name
     gallery.name
   end
+
+  def tag_words
+    words = tags.map { |tag| tag.text }
+    words.join(", ")
+  end
 end

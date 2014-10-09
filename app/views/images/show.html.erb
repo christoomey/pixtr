@@ -29,7 +29,7 @@
 
 <%= form_for [@gallery, @image] do |form| %>
   <h2>Tags: </h2>
-  <%= form.collection_check_boxes :tag_ids, @available_tags, :id, :text %>
+  <%= form.text_field :tag_words, size: 70 %>
   <br />
   <%= form.submit "Update Tags" %>
 <% end %>
