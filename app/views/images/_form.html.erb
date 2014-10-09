@@ -10,6 +10,12 @@
   </div>
 
   <div>
+    <h2>Tags:</h2>
+    <%= form.collection_check_boxes :tag_ids, Tag.all, :id, :text %>
+  </div>
+
+  <div>
+    <br />
     <%= form.submit %>
   </div>
 <% end %>
