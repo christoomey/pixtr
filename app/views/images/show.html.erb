@@ -27,7 +27,12 @@
   <%= button_to "Like this image", image_like_path(@image) %>
 <% end %>
 
-<p><strong>Tags:</strong> <%= @tags.join(', ') %></p>
+<%= form_for [@gallery, @image] do |form| %>
+  <h2>Tags: </h2>
+  <%= form.collection_check_boxes :tag_ids, @available_tags, :id, :text %>
+  <br />
+  <%= form.submit "Update Tags" %>
+<% end %>
 
 <h2>Comments:</h2>
 <ul>

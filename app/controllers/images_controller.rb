@@ -2,7 +2,7 @@ class ImagesController < ApplicationController
   def show
     @gallery = load_gallery_from_url
     @image = @gallery.images.find(params[:id])
-    @tags = @image.tags.map { |tag| tag.text }
+    @available_tags = Tag.all
     @comment = Comment.new
     @comments = @image.comments.recent
   end
@@ -44,7 +44,7 @@ class ImagesController < ApplicationController
   def image_params
     params.
       require(:image).
-      permit(:name, :url, group_ids: [])
+      permit(:name, :url, group_ids: [], tag_ids: [])
   end
 
   def load_gallery_from_url
