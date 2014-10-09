@@ -9,6 +9,11 @@
 
 <ul>
   <% @tags.each do |tag| %>
-    <li><%= link_to tag.text, tag %></li>
+    <li>
+      <%= link_to tag.text, tag %>
+      <% unless tag.image_count.zero? %>
+        -- <%= pluralize(tag.image_count, 'image') %>
+      <% end %>
+    </li>
   <% end %>
 </ul>

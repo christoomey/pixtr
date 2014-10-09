@@ -7,4 +7,8 @@ class Tag < ActiveRecord::Base
   def to_param
     text
   end
+
+  def image_count
+    images.count
+  end
 end
