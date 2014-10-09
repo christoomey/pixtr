@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
   root "galleries#index"
 
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create, :index, :show]
 
   resources :galleries do
     resources :images, only: [:show, :new, :create, :edit, :update]
