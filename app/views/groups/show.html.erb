@@ -9,3 +9,10 @@
     <li><%= member.email %></li>
   <% end %>
 </ul>
+
+<h4>Group images</h4>
+<ul>
+  <% @images.each do |image| %>
+    <li><%= image_tag image.url %></li>
+  <% end %>
+</ul>

@@ -23,7 +23,7 @@
   <header class="session">
     <% if signed_in? %>
       <%= link_to "Groups", groups_path %>
-      <%= link_to "Users", users_path %>
+      <%= link_to "Users", groups_path %>
       <%= link_to "Galleries", galleries_path %> |
       <%= link_to "Sign out", session_path, method: :delete %>
     <% else %>

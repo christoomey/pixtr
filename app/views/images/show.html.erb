@@ -4,6 +4,13 @@
   <%= link_to "Edit this image", edit_gallery_image_path(@gallery, @image) %>
 </div>
 
+<% if current_user == @image.gallery.user %>
+  <%= form_for [@image.gallery, @image] do |form| %>
+    <%= form.collection_check_boxes(:group_ids, Group.all, :id, :name) %>
+    <%= form.submit "Add to groups" %>
+  <% end %>
+<% end %>
+
 <%= image_tag @image.url %>
 
 <div>
