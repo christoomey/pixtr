@@ -5,7 +5,7 @@
 <p><%= @gallery.description %></p>
 
 <ul>
-  <% @gallery.images.each do |image| %>
+  <% @images.each do |image| %>
     <li><%= image_tag image.url %>
     <%= link_to image.name, gallery_image_path(@gallery, image) %></li>
     <ul>

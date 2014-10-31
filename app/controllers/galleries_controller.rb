@@ -20,6 +20,7 @@ class GalleriesController < ApplicationController
 
   def show
     @gallery = load_gallery_from_url
+    @images = @gallery.images.includes(:comments)
   end
 
   def edit
