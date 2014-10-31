@@ -6,10 +6,6 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <style>
-    body {
-      max-width: 960px;
-      margin: 0 auto;
-    }
     .session {
       float: right;
     }
@@ -41,7 +37,21 @@
     <% end %>
   <% end %>
 
-  <%= yield %>
+  <div class="container">
+    <aside>
+      <p>This is the sidebar</p>
+      <ul>
+        <li>Hello</li>
+        <li>World</li>
+        <li>Things</li>
+        <li>Moar</li>
+        <li>Stuff</li>
+      </ul>
+    </aside>
+    <div class="content">
+      <%= yield %>
+    </div>
+  </div>
 
 </body>
 </html>

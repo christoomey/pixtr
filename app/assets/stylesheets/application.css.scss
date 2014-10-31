@@ -1,0 +1,27 @@
+@import "bourbon";
+@import "neat";
+@import "base";
+@import "layout";
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  font-weight: bold;
+
+  &.comment {
+    color: lighten($text-red, 15%);
+  }
+}
+
+div.container {
+  @include outer-container;
+  aside {
+    @include span-columns(3);
+  }
+  .content {
+    @include omega;
+    @include span-columns(9);
+  }
+}

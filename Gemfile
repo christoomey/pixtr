@@ -5,6 +5,8 @@ gem 'monban-generators'
 
 gem 'rails_12factor', group: :production
 
+gem 'neat'
+
 gem 'pry', group: :development
 # with pry installed
 #   call binding.pry in any action

@@ -8,5 +8,10 @@
   <% @gallery.images.each do |image| %>
     <li><%= image_tag image.url %>
     <%= link_to image.name, gallery_image_path(@gallery, image) %></li>
+    <ul>
+      <% image.comments.each do |comment| %>
+        <li class="comment"> <%= comment.body %> </li>
+      <% end %>
+    </ul>
   <% end %>
 </ul>
