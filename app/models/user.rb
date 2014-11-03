@@ -12,6 +12,10 @@ class User < ActiveRecord::Base
     group_memberships.where(group_id: group.id).first
   end
 
+  def hello
+    puts 'things'
+  end
+
   def like(image)
     liked_images << image
   end
