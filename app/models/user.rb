@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   end
 
   def hello
-    puts 'things'
+    puts "things"
   end
 
   def like(image)
